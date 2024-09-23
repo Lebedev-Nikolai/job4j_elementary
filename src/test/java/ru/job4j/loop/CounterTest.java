@@ -1,39 +1,42 @@
 package ru.job4j.loop;
 
 import org.junit.jupiter.api.Test;
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class CounterTest {
-
     @Test
-    void whenStart0AndFinish10ThenResult55() {
-        int start = 0, finish = 10;
-        int expected = 55;
-        int output = Counter.sum(start, finish);
-        assertThat(output).isEqualTo(expected);
+    void whenSumEvenNumbersFromOneToTenThenThirty() {
+        int start = 1;
+        int finish = 10;
+        int result = Counter.sumByEven(start, finish);
+        int expected = 30;
+        assertThat(result).isEqualTo(expected);
     }
 
     @Test
-    void whenStart3AndFinish8ThenResult33() {
-        int start = 3, finish = 8;
-        int expected = 33;
-        int output = Counter.sum(start, finish);
-        assertThat(output).isEqualTo(expected);
+    void whenSumEvenNumbersFromThreeToEightThenEighteen() {
+        int start = 3;
+        int finish = 8;
+        int result = Counter.sumByEven(start, finish);
+        int expected = 18;
+        assertThat(result).isEqualTo(expected);
     }
 
     @Test
-    void whenStart1AndFinish1ThenResult1() {
-        int start = 1, finish = 1;
-        int expected = 1;
-        int output = Counter.sum(start, finish);
-        assertThat(output).isEqualTo(expected);
-    }
-
-    @Test
-    void whenStart5AndFinish1ThenResult0() {
-        int start = 5, finish = 1;
+    void whenSumEvenNumbersFromOneToOneThenZero() {
+        int start = 1;
+        int finish = 1;
+        int result = Counter.sumByEven(start, finish);
         int expected = 0;
-        int output = Counter.sum(start, finish);
-        assertThat(output).isEqualTo(expected);
+        assertThat(result).isEqualTo(expected);
+    }
+
+    @Test
+    void whenSumEvenNumbersFromMinusOneToOneThenZero() {
+        int start = -1;
+        int finish = 1;
+        int result = Counter.sumByEven(start, finish);
+        int expected = 0;
+        assertThat(result).isEqualTo(expected);
     }
 }
